@@ -33,8 +33,8 @@ Set up the SQL side:
 - Type psql -U postgres
 - Enter the password from the .env file
 - cd into db
-- Type i schema.sql
-- Type i seeds.sql
+- Type \i schema.sql
+- Type \i seeds.sql
 - Type \q to quit SQL
 
 Run it:
