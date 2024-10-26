@@ -1,5 +1,10 @@
 import inquirer from "inquirer";
-import ManagementActions from "./ManagementActions";
+import ManagementActions from "./ManagementActions.js";
+
+import { connectToDb } from '../connection.js';
+
+await connectToDb();
+
 
 class Cli {
     exit: boolean= false;
@@ -51,7 +56,7 @@ class Cli {
                     break;
 
                 case 'View employees by department':
-                    await this.getEmployeesByManagerID();
+                    await this.getEmployeesByDepartment();
                     break;
 
                 case 'Add a department':
@@ -317,7 +322,7 @@ class Cli {
         {        
             type: 'input',
             name: 'managerId',
-            message: 'Please enter the ID of the new employee\s manager, if applicable:',
+            message: 'Please enter the ID of the new employee\'s manager, if applicable:',
             default: '',
             validate: (input: string) => {
                 if (input === '' || !isNaN(Number(input))) {
@@ -328,7 +333,16 @@ class Cli {
         },
     ]);
 
-    await this.managementActions.addEmployee(firstName, lastName, roleId, managerId);
+    let managerIdNew;
+
+    if (managerId== '') {
+        managerIdNew = null;
+    }
+    else {
+        managerIdNew= managerId;
+    }
+
+    await this.managementActions.addEmployee(firstName, lastName, roleId, managerIdNew);
     console.log (`The new employee, ${firstName} ${lastName} has been added.`)
     }
 
@@ -451,6 +465,8 @@ class Cli {
        ]);
 
        const departmentBudget= await this.managementActions.viewBudgetByDepartment(parseInt(departmentId));
+
+
        if (departmentBudget) {
         console.log(`The total budget for this department is ${departmentBudget}.`);
        }
