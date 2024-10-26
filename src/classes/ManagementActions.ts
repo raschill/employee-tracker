@@ -32,7 +32,7 @@ class ManagementActions {
     }
 
     async getEmployeesByDepartment(departmentId: number) {
-        const res= await pool.query('SELECT * FROM employee WHERE department_id= $1', [departmentId])
+        const res= await pool.query('SELECT * FROM employee JOIN role ON employee.role_id = role.id WHERE department_id= $1', [departmentId])
         return res.rows;
     }
 
@@ -77,14 +77,15 @@ class ManagementActions {
     async viewBudgetByDepartment(departmentId: number) {
         const query= 
         `SELECT SUM(r.salary) 
-        AS totalBudget 
-        FROM employees e 
-        JOIN roles r
+        AS totalbudget 
+        FROM employee e 
+        JOIN role r
         ON e.role_id= r.id
         WHERE r.department_id= $1`;
 
         const res= await pool.query(query, [departmentId]);
-        return res.rows[0].totalBudget;
+        return res.rows[0].totalbudget;
+    
     }
 }
 

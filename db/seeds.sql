@@ -3,7 +3,7 @@ VALUES ('Finance'),
        ('Executive'),
        ('Marketing'),
        ('Engineering'),
-       ('QA');
+       ('QA'),
        ('IT');
 
 INSERT INTO role (title, salary, department_id)
@@ -16,7 +16,7 @@ VALUES ('Accounting Manager', 90000, 1),
        ('QA Tester', 40000, 5),
        ('Technical Support', 75000, 6);
        
-INSERT INTO role (first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES  ('Miku', 'Hatsune', 3, null),
         ('Meiko', 'Crypton', 2, null),
         ('Kaito', 'Crypton', 1, 2),

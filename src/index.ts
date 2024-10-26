@@ -1,4 +1,4 @@
-import Cli from './classes/Cli';
+import Cli from './classes/Cli.js';
 
 const banner =
 `
