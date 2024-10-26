@@ -30,15 +30,16 @@ Use npm install to set up the necessary dependencies:
 - You will need to use 'nmp i inquirer' and 'npm i pg' without the quotes.
 
 Set up the SQL side:
-- Type psql -U postgres
 - Enter the password from the .env file
 - cd into db
+- Type psql -U postgres
 - Type \i schema.sql
 - Type \i seeds.sql
 - Type \q to quit SQL
 
 Run it:
 - Type npm run start
+- Follow the prompts as desired
 
 
  ## License
