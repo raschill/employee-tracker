@@ -8,7 +8,7 @@
 
  ## Video
 
-[![Watch the video!]](video link here)
+![Watch the video!](https://youtu.be/4cVHvGGRn5M))
  
  ## Table of Contents
 
