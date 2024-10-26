@@ -38,7 +38,6 @@ Set up the SQL side:
 - Type \q to quit SQL
 
 Run it:
-- Type npm run build
 - Type npm run start
 
 
@@ -50,6 +49,7 @@ Run it:
  ## Contributing
 
 - Ariel Schilling
+- Owen Kenne- thank you for help testing!
 - edX Boot Camps LLC, responsible for database logic and resources including example problems
 
  ## Tests
